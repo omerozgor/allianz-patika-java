@@ -6,24 +6,25 @@ public class Main {
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
-        System.out.print("Hoşgeldiniz. Lütfen admin girişi için 1'e, müşteri girişi için 2'ye basınız : ");
-        String role = sc.nextLine();
+        System.out.println("Film yönetim sistemine hoşgeldiniz!");
+        String role;
         ArrayList<Platform> platforms = new ArrayList<>();
         ArrayList<Category> categories = new ArrayList<>();
         ArrayList<Film> films = new ArrayList<>();
 
-        while (!role.equals("1") && !role.equals("2")){
-            System.out.print("Hatalı giriş yaptınız. Tekrar deneyiniz : ");
+        while (true){
+            System.out.print("Lütfen admin girişi için 1'e, müşteri girişi için 2'ye, " +
+                    "Çıkış için farklı bir rakama basınız : ");
             role = sc.nextLine();
+            if (role.equals("1")) {
+                adminLogin(categories,platforms,films,sc);
+            } else if (role.equals("2")) {
+                customerLogin(categories,platforms,films,sc);
+            }else{
+                break;
+            }
         }
 
-        if (role.equals("1")) {
-            adminLogin(categories,platforms,films,sc);
-        }else{
-
-            customerLogin(categories,platforms,films,sc);
-        }
-        customerLogin(categories,platforms,films,sc);
 
     }
 
@@ -107,40 +108,48 @@ public class Main {
             ) {
                 c.addFilm(film);
             }
-            System.out.println("Film eklendi. Müşteri ekranına geçmek için 0'a basın," +
+            System.out.println("Film eklendi. Rol seçme ekranına geçmek için 0'a basın," +
                     "Film eklemeye devam etmek istiyorsanız 0 harici bir tuşa basın :");
 
             input = sc.nextLine();
 
         }while (!input.equals("0"));
+
     }
 
     private static void customerLogin(ArrayList<Category> categories,ArrayList<Platform> platforms,
             ArrayList<Film> films,Scanner sc){
-        if (categories.size() == 0) {
-            System.out.println("Şu an herhangi bir film bulunmamaktadır. Admin girişine yönlendiriliyorsunuz...");
-            adminLogin(categories,platforms,films,sc);
-        }else {
-            System.out.println("Kategori numarası seçiniz : ");
-            for (int i = 0; i < categories.size(); i++) {
-                System.out.println((i + 1) + ": " + categories.get(i).getName() + "(" +
-                        categories.get(i).getFilmArrayList().size() + " film bulunmakta)");
-            }
-            int selectedCategory = sc.nextInt();
-            System.out.println(categories.get(selectedCategory-1).getName() + " Kategorisindeki filmler : ");
-            for (int i = 0; i < categories.get(selectedCategory-1).getFilmArrayList().size(); i++) {
-                System.out.println(categories.get(selectedCategory-1).getFilmArrayList().get(i).getFilmName());
 
+            while (true){
+                if (categories.size() == 0) {
+                    System.out.println("Şu an herhangi bir film bulunmamaktadır.");
+                    break;
+                }else {
+                    System.out.println("Görmek istediğiniz filmler için kategori numarası seçiniz : ");
+                    for (int i = 0; i < categories.size(); i++) {
+                        System.out.println((i + 1) + ": " + categories.get(i).getName() + "(" +
+                                categories.get(i).getFilmArrayList().size() + " film bulunmakta)");
+                    }
+                    int selectedCategory = sc.nextInt();
+                    sc.nextLine();
+                    System.out.println(categories.get(selectedCategory-1).getName() + " Kategorisindeki filmler : ");
+                    for (int i = 0; i < categories.get(selectedCategory-1).getFilmArrayList().size(); i++) {
+                        System.out.println(categories.get(selectedCategory-1).getFilmArrayList().get(i).getFilmName());
+
+                    }
+
+                    System.out.println("Rol seçme ekranına dönmek için 0'a basın," +
+                            "Film kategorilerini görüntülemek için 0 harici bir tuşa basın :");
+
+                    String input = sc.nextLine();
+                    if (input.equals("0")) {
+                        break;
+                    }
+                }
             }
-            System.out.println("\n");
-            System.out.println("Müşteri ekranına gitmek için 1'e, admin ekranına gitmek için 0'a basın :");
-            int role = sc.nextInt();
-            if (role == 1) {
-                customerLogin(categories,platforms,films,sc);
-            } else if (role == 2) {
-                adminLogin(categories,platforms,films,sc);
-            }
-        }
+
+
+
 
 
     }
