@@ -1,3 +1,7 @@
+import model.Category;
+import model.Film;
+import model.Platform;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

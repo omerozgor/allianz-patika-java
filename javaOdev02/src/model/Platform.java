@@ -1,3 +1,5 @@
+package model;
+
 public class Platform {
 
     private String name;
