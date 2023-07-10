@@ -28,4 +28,12 @@ public class Category {
     public ArrayList<Film> getFilmArrayList() {
         return filmArrayList;
     }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "name='" + name + '\'' +
+
+                '}';
+    }
 }

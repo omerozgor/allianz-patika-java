@@ -81,4 +81,17 @@ public class Film {
     public void setPlatformList(List<Platform> platformList) {
         this.platformList = platformList;
     }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "filmName='" + filmName + '\'' +
+                ", year=" + year +
+                ", director='" + director + '\'' +
+                ", imdb=" + imdb +
+                ", categoryArray=" + categoryArray +
+                ", time='" + time + '\'' +
+                ", platformList=" + platformList +
+                '}';
+    }
 }

@@ -77,7 +77,6 @@ public class Main {
                         filmCategories.add(categories.get(categoryNumber-1));
                     }
 
-
                     while (true) {
                         System.out.println("Film için platform ekleyiniz : (Eklemeyi bitirmek için 0'a basın)");
                         for (int i = 0; i < platforms.size(); i++) {
@@ -118,7 +117,7 @@ public class Main {
                         sc.nextLine();
                         System.out.println(categories.get(selectedCategory-1).getName() + " Kategorisindeki filmler : ");
                         for (int i = 0; i < categories.get(selectedCategory-1).getFilmArrayList().size(); i++) {
-                            System.out.println(categories.get(selectedCategory-1).getFilmArrayList().get(i).getFilmName());
+                            System.out.println(categories.get(selectedCategory-1).getFilmArrayList().get(i));
 
                         }
 
