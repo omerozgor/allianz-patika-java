@@ -1,10 +1,11 @@
 import main.CourseGrade;
+import main.GenerateTranscript;
 import main.Transcript;
 import util.Grade;
 
 public class Main {
     public static void main(String[] args) {
-
+/*
 
         Transcript transcript = new Transcript(1234234);
 
@@ -21,5 +22,12 @@ public class Main {
         transcript.addCourseTaken(courseGrade3);
 
         System.out.println(transcript);
+        */
+
+        GenerateTranscript generateTranscript = new GenerateTranscript();
+
+        generateTranscript.takeInputFromUser();
+
+        generateTranscript.takeInputFromFile();
     }
 }
