@@ -23,7 +23,7 @@ public class CustomerController {
 
     @PostMapping("add")
     public ResponseEntity<Customer> add(@RequestBody Customer customer){
-        return new ResponseEntity<>(customerService.add(customer),HttpStatus.OK);
+        return new ResponseEntity<>(customerService.add(customer),HttpStatus.CREATED);
     }
 
 }
