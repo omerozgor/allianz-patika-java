@@ -3,13 +3,17 @@ package com.allianz.erp.entity.concretes;
 import com.allianz.erp.entity.abstracts.BaseEntity;
 import com.allianz.erp.model.OrderStatusEnum;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
 
 import java.util.List;
 
 @Entity
 @Table(name = "orders")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @AttributeOverride(
         name = "uuid",
         column = @Column(

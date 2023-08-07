@@ -4,7 +4,7 @@ public enum OrderStatusEnum {
 
     WAITING_FOR_CONFIRMATION,
     CONFIRMED,
-    SHIPPING,
+    SHIPPED,
     REJECTED
 
 }

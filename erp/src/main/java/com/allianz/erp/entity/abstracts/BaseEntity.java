@@ -18,7 +18,7 @@ public abstract class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
 
     @GeneratedValue(generator = "uuid2")

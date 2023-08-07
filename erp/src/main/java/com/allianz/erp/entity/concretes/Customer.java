@@ -2,13 +2,16 @@ package com.allianz.erp.entity.concretes;
 
 import com.allianz.erp.entity.abstracts.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Table(name = "customers")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @AttributeOverride(
         name = "uuid",
         column = @Column(

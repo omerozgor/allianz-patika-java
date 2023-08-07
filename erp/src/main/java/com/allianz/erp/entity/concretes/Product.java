@@ -2,14 +2,17 @@ package com.allianz.erp.entity.concretes;
 
 import com.allianz.erp.entity.abstracts.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
 @Table(name = "products")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product extends BaseEntity {
 
     @Column(name = "name")

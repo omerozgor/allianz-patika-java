@@ -3,11 +3,14 @@ package com.allianz.erp.entity.concretes;
 
 import com.allianz.erp.entity.abstracts.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "order_details")
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @AttributeOverride(
         name = "uuid",
         column = @Column(
